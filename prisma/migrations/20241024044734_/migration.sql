@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "PaymentSession" ALTER COLUMN "DES_EMAIL" DROP NOT NULL;
