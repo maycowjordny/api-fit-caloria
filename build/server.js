@@ -874,7 +874,7 @@ app.get("/cron", async (request, reply) => {
 });
 import_node_cron.default.schedule("*/5 * * * *", async () => {
   try {
-    await import_axios.default.get("https://api-calculator-calories-1.onrender.com/cron");
+    await import_axios.default.get("https://api-fit-caloria.onrender.com/cron");
   } catch (error) {
     console.error("Error pinging server:", error);
   }

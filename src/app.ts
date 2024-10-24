@@ -13,7 +13,7 @@ app.get('/cron', async (request, reply) => {
 
 cron.schedule('*/5 * * * *', async () => {
   try {
-    await axios.get('https://api-calculator-calories-1.onrender.com/cron');
+    await axios.get('https://api-fit-caloria.onrender.com/cron');
   } catch (error) {
     console.error('Error pinging server:', error);
   }
