@@ -36,10 +36,22 @@ module.exports = __toCommonJS(index_routes_exports);
 
 // src/app.ts
 var import_cors = __toESM(require("@fastify/cors"));
+var import_axios = __toESM(require("axios"));
 var import_config = require("dotenv/config");
 var import_fastify = __toESM(require("fastify"));
 var import_fastify_raw_body = __toESM(require("fastify-raw-body"));
+var import_node_cron = __toESM(require("node-cron"));
 var app = (0, import_fastify.default)();
+app.get("/cron", async (request, reply) => {
+  reply.status(200).send("ok");
+});
+import_node_cron.default.schedule("*/1 * * * *", async () => {
+  try {
+    await import_axios.default.get("https://api-fit-caloria.onrender.com/cron");
+  } catch (error) {
+    console.error("Error pinging server:", error);
+  }
+});
 app.register(import_fastify_raw_body.default, {
   field: "rawBody",
   global: false,
