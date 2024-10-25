@@ -183,7 +183,7 @@ var MercadoPagoPaymentService = class {
           }
         ],
         external_reference: (0, import_crypto.randomUUID)(),
-        notification_url: "https://api-calculator-calories-1.onrender.com/webhooks/mercadopago",
+        notification_url: "https://api-fit-caloria.onrender.com/webhooks/mercadopago",
         back_urls: {
           success: "https://www.fit-caloria.com.br",
           failure: "https://www.fit-caloria.com.br",
