@@ -98,8 +98,8 @@ var StripePaymentService = class {
       customer_email: email,
       mode: "payment",
       payment_method_types: ["card", "boleto"],
-      success_url: `${process.env.BASE_URL}/`,
-      cancel_url: `${process.env.BASE_URL}/`
+      success_url: `${process.env.BASE_URL}`,
+      cancel_url: `${process.env.BASE_URL}`
     });
     return session;
   }

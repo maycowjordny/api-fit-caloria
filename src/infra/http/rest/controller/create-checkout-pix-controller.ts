@@ -10,7 +10,7 @@ export class CreateCheckoutPixController {
 
       const session = await createCheckoutUseCase.execute(email);
 
-      reply.status(200).send({ url: session.init_point });
+      reply.status(200).send({ id: session.id, url: session.init_point });
     } catch (err) {
       return reply.status(err instanceof CreateCheckoutException ? 500 : 409).send({
         name: (err as Error).name,

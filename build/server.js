@@ -230,7 +230,7 @@ var CreateCheckoutPixController = class {
         const { email } = request.body;
         const createCheckoutUseCase = makeCreateCheckoutPix();
         const session = await createCheckoutUseCase.execute(email);
-        reply.status(200).send({ url: session.init_point });
+        reply.status(200).send({ id: session.id, url: session.init_point });
       } catch (err) {
         return reply.status(err instanceof CreateCheckoutException ? 500 : 409).send({
           name: err.name,
@@ -285,8 +285,8 @@ var StripePaymentService = class {
       customer_email: email,
       mode: "payment",
       payment_method_types: ["card", "boleto"],
-      success_url: `${process.env.BASE_URL}/`,
-      cancel_url: `${process.env.BASE_URL}/`
+      success_url: `${process.env.BASE_URL}`,
+      cancel_url: `${process.env.BASE_URL}`
     });
     return session;
   }
