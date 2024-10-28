@@ -189,9 +189,18 @@ var MercadoPagoPaymentService = class {
             title: "P\xE1gina Fit-caloria",
             description: "Crie sua dieta personalizada",
             quantity: 1,
-            unit_price: 4.99
+            unit_price: 9.99
           }
         ],
+        payment_methods: {
+          excluded_payment_types: [
+            { id: "credit_card" },
+            { id: "debit_card" },
+            { id: "ticket" },
+            { id: "atm" },
+            { id: "prepaid_card" }
+          ]
+        },
         external_reference: (0, import_crypto.randomUUID)(),
         notification_url: "https://api-fit-caloria.onrender.com/webhooks/mercadopago",
         back_urls: {
