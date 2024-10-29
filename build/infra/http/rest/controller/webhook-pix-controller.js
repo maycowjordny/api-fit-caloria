@@ -176,7 +176,7 @@ var WebHookPixUseCase = class {
           const sessionInput = PaymentSession.create({
             email: paymentResponse.payer.email || null,
             isPaid: true,
-            sessionId: String(paymentResponse.id),
+            sessionId: paymentResponse.external_reference,
             paymentType: "PIX" /* PIX */
           });
           return await this.updatePaymentSessionUseCase.execute(sessionInput);
@@ -184,7 +184,7 @@ var WebHookPixUseCase = class {
           const sessionInput = PaymentSession.create({
             email: paymentResponse.payer.email || null,
             isPaid: false,
-            sessionId: String(paymentResponse.id),
+            sessionId: paymentResponse.external_reference,
             paymentType: "PIX" /* PIX */
           });
           return await this.createPaymentSessionUseCase.execute(sessionInput);
@@ -192,7 +192,7 @@ var WebHookPixUseCase = class {
           const sessionInput = PaymentSession.create({
             email: paymentResponse.payer.email || null,
             isPaid: false,
-            sessionId: String(paymentResponse.id),
+            sessionId: paymentResponse.external_reference,
             paymentType: "PIX" /* PIX */
           });
           return await this.createPaymentSessionUseCase.execute(sessionInput);

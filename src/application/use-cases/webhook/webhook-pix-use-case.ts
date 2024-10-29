@@ -23,7 +23,7 @@ export class WebHookPixUseCase {
           const sessionInput = PaymentSession.create({
             email: paymentResponse.payer.email || null,
             isPaid: true,
-            sessionId: String(paymentResponse.id),
+            sessionId: paymentResponse.external_reference,
             paymentType: PaymentTypeEnum.PIX,
           });
 
@@ -32,7 +32,7 @@ export class WebHookPixUseCase {
           const sessionInput = PaymentSession.create({
             email: paymentResponse.payer.email || null,
             isPaid: false,
-            sessionId: String(paymentResponse.id),
+            sessionId: paymentResponse.external_reference,
             paymentType: PaymentTypeEnum.PIX,
           });
 
@@ -41,7 +41,7 @@ export class WebHookPixUseCase {
           const sessionInput = PaymentSession.create({
             email: paymentResponse.payer.email || null,
             isPaid: false,
-            sessionId: String(paymentResponse.id),
+            sessionId: paymentResponse.external_reference,
             paymentType: PaymentTypeEnum.PIX,
           });
 
